@@ -38,7 +38,7 @@ firebase serve --only hosting
 
 9. Bring in all the scripts for Firebase. You probably already have some. If you created the project before hand they are in the index.html file that was created by running
 
-firebase init
+<pre><code>firebase init</code></pre>
 
 10. If you are using sass make sure you have your package.json path for sass changed to public/sass
 

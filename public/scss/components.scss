@@ -12,21 +12,78 @@
   color: $white-color;
 }
 
+.btn-light {
+  background-color: $bisque;
+}
+
+.btn-holder-modal {
+  margin-left: 40px;
+}
+
 .modal {
+  margin: 0 auto;
+  align-items: center;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba($white-color, 0.5);
   display: none;
-  //display:flex;
+
+  .click-box {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba($white-color, 0.5);
+
+    .closeX {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 50px;
+      cursor: pointer;
+      color: $dark-color;
+    }
+  }
 
   .alert-box {
+    position: relative;
+    z-index: 99;
+    margin: 0 auto;
     width: 600px;
     height: 350px;
     background-color: $dark-color;
-    margin: auto;
     border-radius: 10px;
+    padding: 20px;
+
+    h2 {
+      text-align: center;
+      color: $white-color;
+    }
+    p {
+      text-align: center;
+      color: $white-color;
+    }
+    input {
+      text-decoration: none;
+      border: none;
+      margin-left: 200px;
+      width: 130px;
+      height: 30px;
+      border-radius: 10px;
+      margin-bottom: 50px;
+      font-size: 20px;
+    }
+
+    input[type="text"] {
+      text-align: center;
+    }
+  }
+}
+
+.modal.active {
+  display: flex;
+
+  .alert-box.active {
   }
 }

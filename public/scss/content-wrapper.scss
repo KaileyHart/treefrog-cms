@@ -7,3 +7,44 @@
     margin-bottom: 40px;
   }
 }
+
+.content-wrapper-02 {
+  color: $dark-color;
+  padding: 110px 30px 30px 30px;
+  visibility: hidden;
+
+  .text-wrapper-02 {
+    width: 30%;
+    margin-bottom: 40px;
+  }
+}
+
+.content-wrapper-02.active {
+  visibility: visible;
+  .text-wrapper-02 {
+    visibility: visible;
+  }
+}
+
+.content-wrapper-03 {
+  color: $dark-color;
+  padding: 110px 30px 30px 30px;
+  visibility: hidden;
+
+  .text-wrapper-03 {
+    width: 30%;
+    margin-bottom: 40px;
+  }
+  .editor {
+  }
+}
+
+.content-wrapper-03.active {
+  visibility: visible;
+  .text-wrapper-03 {
+    visibility: visible;
+  }
+  .editor {
+    visibility: visible;
+  }
+}

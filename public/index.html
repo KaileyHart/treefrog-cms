@@ -5,7 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Treefrog | CMS</title>
+    <!--Link to CSS-->
     <link rel="stylesheet" href="css/styles.css" />
+
+    <!-- Link to Quill's CSS -->
+    <link
+      href="https://cdn.quilljs.com/1.3.6/quill.snow.css"
+      rel="stylesheet"
+    />
+
+    <!-- Include the Quill library -->
+    <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+
+    
+    </script>
   </head>
   <body>
     <nav class="nav">
@@ -52,13 +65,81 @@
         </p>
       </div>
       <div class="btn-holder">
-        <span class="btn btn-dark get-started">Get Started</span>
+        <span id="addListener" class="btn btn-dark get-started"
+          >Get Started</span
+        >
+      </div>
+    </div>
+
+    <div class="content-wrapper-02">
+      <div class="text-wrapper-02">
+        <h1>Treefrog CMS</h1>
+        <p>
+          This is the screen where you will create your navigation and page
+          content
+        </p>
+        <p>
+          First, you will need to create a main navigation. Once you have
+          created a main navigation you can create a sub-navigation if you would
+          like to.
+        </p>
+        <p>
+          Once you create either a nav or sub-nav a text editor will pop up and
+          you will be allowed to create your page content.
+        </p>
+      </div>
+      <div class="btn-holder ">
+        <span id="create-nav" class="btn btn-dark">Create Main Nav</span
+        ><span class="btn btn-dark">Create Sub Nav</span>
+      </div>
+    </div>
+
+    <div class="content-wrapper-03">
+      <div class="text-wrapper-03">
+        <h1>Treefrog CMS</h1>
+        <p>
+          Now you have your navigation set now you can create your content.
+          Create your content in the text editor and then click on "Save Page
+          Info". Once you have done that, click on "PREVIEW SITE" to see what
+          your webage looks like.
+        </p>
+
+        <!-- Create the editor container -->
+        <div class="editor" id="editor" id="editor-container">
+          <p>Hello World!</p>
+          <p>Some initial <strong>bold</strong> text</p>
+          <p><br /></p>
+        </div>
       </div>
     </div>
 
     <div class="modal">
-      <div class="alert-box"></div>
+      <div class="click-box closeModal">
+        <div class="closeX closeModal">X</div>
+      </div>
+      <div class="alert-box">
+        <h2>Use this box to create navigation links.</h2>
+        <p>
+          You can create main navigation and sub navigation. To create a
+          sub-navigation you will first need to select a main nav and then
+          create the sub nav.
+        </p>
+        <p>Using the text box below enter the name of your main navigation</p>
+        <style>
+          .btn-holder-modal {
+          }
+        </style>
+        <input type="text" id="nav-input" class="nav-input" />
+
+        <div class="btn-holder-modal">
+          <span class="btn btn-light " id="submit-nav-input"
+            >Create Main Nav</span
+          >
+          <span id="close-modal" class="btn btn-light closeModal">Cancel</span>
+        </div>
+      </div>
     </div>
+
     <script defer src="/__/firebase/7.8.1/firebase-app.js"></script>
     <!-- include only the Firebase features as you need -->
     <script defer src="/__/firebase/7.8.1/firebase-auth.js"></script>

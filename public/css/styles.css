@@ -29,20 +29,62 @@ p {
   background-color: #393c40;
   color: #f2f2f2; }
 
+.btn-light {
+  background-color: bisque; }
+
+.btn-holder-modal {
+  margin-left: 40px; }
+
 .modal {
+  margin: 0 auto;
+  align-items: center;
   position: fixed;
   top: 0;
   right: 0;
   bottom: 0;
   left: 0;
-  background-color: rgba(242, 242, 242, 0.5);
   display: none; }
+  .modal .click-box {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    background-color: rgba(242, 242, 242, 0.5); }
+    .modal .click-box .closeX {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      font-size: 50px;
+      cursor: pointer;
+      color: #393c40; }
   .modal .alert-box {
+    position: relative;
+    z-index: 99;
+    margin: 0 auto;
     width: 600px;
     height: 350px;
     background-color: #393c40;
-    margin: auto;
-    border-radius: 10px; }
+    border-radius: 10px;
+    padding: 20px; }
+    .modal .alert-box h2 {
+      text-align: center;
+      color: #f2f2f2; }
+    .modal .alert-box p {
+      text-align: center;
+      color: #f2f2f2; }
+    .modal .alert-box input {
+      text-decoration: none;
+      border: none;
+      margin-left: 200px;
+      width: 130px;
+      height: 30px;
+      border-radius: 10px;
+      margin-bottom: 50px;
+      font-size: 20px; }
+    .modal .alert-box input[type="text"] {
+      text-align: center; }
+
+.modal.active {
+  display: flex; }
 
 .nav {
   position: fixed;
@@ -91,3 +133,31 @@ p {
   .content-wrapper .text-wrapper {
     width: 30%;
     margin-bottom: 40px; }
+
+.content-wrapper-02 {
+  color: #393c40;
+  padding: 110px 30px 30px 30px;
+  visibility: hidden; }
+  .content-wrapper-02 .text-wrapper-02 {
+    width: 30%;
+    margin-bottom: 40px; }
+
+.content-wrapper-02.active {
+  visibility: visible; }
+  .content-wrapper-02.active .text-wrapper-02 {
+    visibility: visible; }
+
+.content-wrapper-03 {
+  color: #393c40;
+  padding: 110px 30px 30px 30px;
+  visibility: hidden; }
+  .content-wrapper-03 .text-wrapper-03 {
+    width: 30%;
+    margin-bottom: 40px; }
+
+.content-wrapper-03.active {
+  visibility: visible; }
+  .content-wrapper-03.active .text-wrapper-03 {
+    visibility: visible; }
+  .content-wrapper-03.active .editor {
+    visibility: visible; }

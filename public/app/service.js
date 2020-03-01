@@ -7,11 +7,18 @@ var TREEFROG_SERVICE = (function() {
 
   //Stores the text editor Content
   var _getTextEditorContent = function() {
-    let textEditorContent = `<h1>Treefrog CMS</h1><p>Now you have your navigation set now you can create your content. Create your content in the text editor and then click on "Save Page Info". Once you have done that, click on "PREVIEW SITE" to see what your webage looks like.</p><div id="editor">
+    let textEditorContent = `<h1>Treefrog CMS</h1><p>Now you have your navigation set now you can create your content. Create your content in the text editor and then click on "Save Page Info". Once you have done that, click on "PREVIEW SITE" to see what your webage looks like.</p>
+    <h4>Nav > </h4> 
+    
+    <div  id="editor">
     <p>Hello World!</p>
     <p>Some initial <strong>bold</strong> text</p> 
+
     <p><br></p>
+
     </div>
+    <button id="saveData">Save Data</button>
+
     
     `;
 

@@ -24,19 +24,6 @@ function initButtons() {
   });
 }
 
-$(document).on("click", "#submit-nav-input", function() {
-  //Removes the modal
-  $(".modal, .alert-box").removeClass("active");
-
-  //adds the Text editor Content
-  $(".text-wrapper").html(TREEFROG_SERVICE.getTextEditorContent());
-  $(".editor").html(TREEFROG_SERVICE.getQuillContainer());
-  createQuillContainer();
-});
-
-//Console.log's what the user puts in the input in the modal
-//Turns the input value into ALL lowercase
-//Alerts the user if the input is empty in the modal
 $("#submit-nav-input").click(function() {
   //Alerts the user if the input is empty in the modal
   if ($("#nav-input").val() == "") {
@@ -44,11 +31,19 @@ $("#submit-nav-input").click(function() {
     $(".modal, .alert-box").addClass("active");
     $(".btn-holder").html(TREEFROG_SERVICE.getCreateModalPopup());
   } else if ($("nav-input").val() != "") {
+    //Removes the modal
+    $(".modal, .alert-box").removeClass("active");
+
+    //adds the Text editor Content
+    $(".text-wrapper").html(TREEFROG_SERVICE.getTextEditorContent());
+
     alert(
       $(".nav-input")
         .val()
         .toLowerCase() + " has been created!"
     );
+
+    createQuillContainer();
   }
 
   //Console.log's what the user puts in the input in the modal
@@ -61,28 +56,25 @@ $("#submit-nav-input").click(function() {
       .toLowerCase()
   );
 
+  //Checks for duplicates
   if ($("#nav-input").val() == $("nav-input").val()) {
     alert("You already made this navigation! Please make a new one!");
-  } else if ($("#nav-input").val() != $("nav-input").val()) {
+  } //if no duplicate, create the input
+  else if ($("#nav-input").val() != $("nav-input").val()) {
     $("#nav-input-submit").click(function() {
       $(".modal").removeClass("active");
-      $(".create-nav").addClass("active");
 
-      $(".text-wrapper").html(TREEFROG_SERVICE.getHomeContent());
-      $(".btn-holder").html(TREEFROG_SERVICE.getHomeStartButton());
+      $(".text-wrapper-03").html(TREEFROG_SERVICE.getTextEditorContent());
 
       addGetStartedListener();
+
       //turns off the listener on the create main nav button
-      $("#createMainNav").off();
     });
   }
 });
 
 function createQuillContainer() {
-  var container = $(".editor").get(0);
-  var editor = new Quill(container);
-
-  var quill = new Quill("#editor-container", {
+  var quill = new Quill("#editor", {
     modules: {
       toolbar: [
         ["bold", "italic", "underline", "strike"], //toggled buttons
@@ -106,6 +98,12 @@ function createQuillContainer() {
     },
     placeholder: "Compose an epic...",
     theme: "snow" // or "bubble"
+  });
+
+  $("#saveData").click(function(e) {
+    e.preventDefault();
+    var justHtml = quill.root.innerHTML;
+    $("#quillContent").html(justHtml);
   });
 }
 
@@ -137,5 +135,4 @@ function addGetStartedListener() {
 $(document).ready(function() {
   initButtons();
   addGetStartedListener();
-  createQuillContainer();
 });

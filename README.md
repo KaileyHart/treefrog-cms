@@ -1,10 +1,11 @@
 # Homework 5
-*Web 4 Hosting: https://in-info-web4.informatics.iupui.edu/~kalyhart/N315/HW5/treefrog-cms/public/addSave.html
-Firebase Hostinghttps://tree-frog-cms-n315.firebaseapp.com/addSave.html#*
+*Web 4 Hosting: https://in-info-web4.informatics.iupui.edu/~kalyhart/N315/HW5/treefrog-cms/public/addSave.html*
+*Firebase Hosting: https://tree-frog-cms-n315.firebaseapp.com/addSave.html#*
 
 # Homework 6
-*Web 4 Hosting: https://in-info-web4.informatics.iupui.edu/~kalyhart/N315/HW6/public/addSave.html
-Firebase Hosting: https://tree-frog-cms-n315.firebaseapp.com/addSave.html#*
+*Web 4 Hosting: https://in-info-web4.informatics.iupui.edu/~kalyhart/N315/HW6/public/addSave.html*
+
+*Firebase Hosting: https://tree-frog-cms-n315.firebaseapp.com/addSave.html#*
 
 
 

@@ -1,3 +1,15 @@
+function addMainNav(navName) {
+  console.log("add", navName);
+
+  let pageFakeData = {
+    navName: navName,
+    content: "<h1>Hello</h1>", //quill content
+    subNavs: []
+  };
+
+  TREEFROG_SERVICE.saveData(pageFakeData);
+}
+
 function initButtons() {
   //Makes it so that when the user clicks on the HOME button they can go back to home from the add nav bar in the top navigation
   $("#home").click(function() {
@@ -25,52 +37,51 @@ function initButtons() {
 }
 
 $("#submit-nav-input").click(function() {
+  //Check if there is anything in the database
+  let newNavName = $("#submit-nav-input")
+    .val()
+    .toLowerCase()
+    .trim();
+
+  TREEFROG_SERVICE.checkMainNavName(newNavName, addMainNav);
+
   //Alerts the user if the input is empty in the modal
-  if ($("#nav-input").val() == "") {
-    alert("Input is empty! Please add a navigation name to continue");
-    $(".modal, .alert-box").addClass("active");
-    $(".btn-holder").html(TREEFROG_SERVICE.getCreateModalPopup());
-  } else if ($("nav-input").val() != "") {
-    //Removes the modal
-    $(".modal, .alert-box").removeClass("active");
-
-    //adds the Text editor Content
-    $(".text-wrapper").html(TREEFROG_SERVICE.getTextEditorContent());
-
-    alert(
-      $(".nav-input")
-        .val()
-        .toLowerCase() + " has been created!"
-    );
-
-    createQuillContainer();
-  }
-
-  //Console.log's what the user puts in the input in the modal
-  console.log($("#nav-input").val());
-
-  //Turns the input value into ALL lowercase
-  console.log(
-    $("#nav-input")
-      .val()
-      .toLowerCase()
-  );
-
-  //Checks for duplicates
-  if ($("#nav-input").val() == $("nav-input").val()) {
-    alert("You already made this navigation! Please make a new one!");
-  } //if no duplicate, create the input
-  else if ($("#nav-input").val() != $("nav-input").val()) {
-    $("#nav-input-submit").click(function() {
-      $(".modal").removeClass("active");
-
-      $(".text-wrapper-03").html(TREEFROG_SERVICE.getTextEditorContent());
-
-      addGetStartedListener();
-
-      //turns off the listener on the create main nav button
-    });
-  }
+  // if ($("#nav-input").val() == "") {
+  //   alert("Input is empty! Please add a navigation name to continue");
+  //   $(".modal, .alert-box").addClass("active");
+  //   $(".btn-holder").html(TREEFROG_SERVICE.getCreateModalPopup());
+  // } else if ($("nav-input").val() != "") {
+  //   //Removes the modal
+  //   $(".modal, .alert-box").removeClass("active");
+  //   //adds the Text editor Content
+  //   $(".text-wrapper").html(TREEFROG_SERVICE.getTextEditorContent());
+  //   alert(
+  //     $(".nav-input")
+  //       .val()
+  //       .toLowerCase() + " has been created!"
+  //   );
+  //   createQuillContainer();
+  // }
+  // //Console.log's what the user puts in the input in the modal
+  // console.log($("#nav-input").val());
+  // //Turns the input value into ALL lowercase
+  // console.log(
+  //   $("#nav-input")
+  //     .val()
+  //     .toLowerCase()
+  // );
+  // //Checks for duplicates
+  // if ($("#nav-input").val() == $("nav-input").val()) {
+  //   alert("You already made this navigation! Please make a new one!");
+  // } //if no duplicate, create the input
+  // else if ($("#nav-input").val() != $("nav-input").val()) {
+  //   $("#nav-input-submit").click(function() {
+  //     $(".modal").removeClass("active");
+  //     $(".text-wrapper-03").html(TREEFROG_SERVICE.getTextEditorContent());
+  //     addGetStartedListener();
+  //     //turns off the listener on the create main nav button
+  //   });
+  // }
 });
 
 function createQuillContainer() {
@@ -133,6 +144,7 @@ function addGetStartedListener() {
 }
 
 $(document).ready(function() {
+  TREEFROG_SERVICE.initFirebase();
   initButtons();
   addGetStartedListener();
 });

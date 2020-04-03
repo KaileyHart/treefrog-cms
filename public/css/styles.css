@@ -1,3 +1,4 @@
+@charset "UTF-8";
 * {
   margin: 0;
   padding: 0;
@@ -165,6 +166,9 @@ p {
 .editor {
   width: 70%; }
 
+.ql-editor {
+  padding-bottom: 30px; }
+
 .ql-align-center {
   text-align: center; }
 
@@ -176,3 +180,48 @@ p {
 
 .ql-toolbar {
   width: 800px; }
+
+.ql-picker-label {
+  font-size: 10px; }
+
+.ql-active {
+  font-size: 10px; }
+
+.ql-picker-item {
+  font-size: 10px; }
+
+.ql-selected {
+  font-size: 10px; }
+
+span[value="small"] {
+  font-size: 10px; }
+
+.ql-size-small {
+  font-size: 10px; }
+
+.ql-size-large {
+  font-size: 30px; }
+
+.ql-size-normal {
+  font-size: 16px; }
+
+.ql-size-huge {
+  font-size: 60px; }
+
+.ql-align-justify {
+  width: 100px;
+  text-align: justify; }
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "“" "”" "‘" "’"; }
+
+.saveData {
+  background-color: #393c40;
+  color: #f2f2f2;
+  border: none;
+  padding: 10px;
+  border-radius: 5px; }

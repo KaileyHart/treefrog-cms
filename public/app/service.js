@@ -1,4 +1,93 @@
 var TREEFROG_SERVICE = (function() {
+  //firebase
+  document.addEventListener("DOMContentLoaded", function() {
+    // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥 // // The Firebase SDK is initialized and available here! // // firebase.auth().onAuthStateChanged(user => {}); // firebase // .database() // .ref('/contacts') // .on('value', snapshot => {}); // firebase.firestore().collection('contacts'); // firebase.messaging().requestPermission().then(() => { }); // firebase.storage().ref('/path/to/ref').getDownloadURL().then(() => { }); // // // 🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥🔥
+    try {
+      let app = firebase.app();
+      let features = ["auth", "database", "messaging", "storage"].filter(
+        feature => typeof app[feature] === "function"
+      );
+      //document.getElementById("load");
+    } catch (e) {
+      console.error(e);
+    }
+  });
+
+  var _db;
+
+  var _initFirebase = function() {
+    firebase
+      .auth()
+      .signInAnonymously()
+      .then(function(result) {
+        console.log("connected");
+        _db = firebase.firestore();
+
+        //_addContact();
+      });
+  };
+
+  var _addContact = function() {
+    let data = { fName: "Samuel", lName: "Hart" };
+    _db
+      .collection("Pages")
+      .add(data)
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  };
+
+  var _saveData = function(pageData) {
+    _db
+      .collection("Pages")
+      .add(pageData)
+      .then(function(docRef) {
+        console.log("Document written with ID: ", docRef.id);
+
+        _saveData();
+      })
+      .catch(function(error) {
+        console.error("Error adding document: ", error);
+      });
+  };
+
+  var _checkMainNavName = function(mainNavName, callback) {
+    _db
+      .collection("Pages")
+      .get()
+      .then(function(querySnapshot) {
+        //console.log("pages", querySnapshot.empty());
+
+        if (querySnapshot.empty) {
+          callback(mainNavName);
+        } else {
+          console.log(
+            _db.collection("Pages").where("navName", "==", mainNavName)
+          );
+        }
+      })
+      .catch(function(error) {
+        console.log("error", error);
+      });
+    //console.log("here", mainNavName);
+    _db
+      .collection("Pages")
+      .where("navName", "==", mainNavName)
+      .get()
+      .then(function(querySnapshot) {
+        querySnapshot.forEach(function(doc) {
+          // doc.data() is never undefined for query doc snapshots
+          console.log("got something", doc.id, " => ", doc.data());
+        });
+      })
+      .catch(function(error) {
+        console.log("Error getting documents: ", error);
+      });
+  };
+
   var _getQuillContainer = function() {
     let quillContent = ``;
 
@@ -13,14 +102,9 @@ var TREEFROG_SERVICE = (function() {
     <div  id="editor">
     <p>Hello World!</p>
     <p>Some initial <strong>bold</strong> text</p> 
-
-    <p><br></p>
-
     </div>
-    <button id="saveData">Save Data</button>
-
-    
-    `;
+    <button class="saveData" id="saveData">Save Data</button>
+    <div id="quillContent"></div>`;
 
     return textEditorContent;
   };
@@ -101,6 +185,9 @@ var TREEFROG_SERVICE = (function() {
     getCreateModalPopup: _getCreateModalPopup,
     getModalPopupButtons: _getModalPopupButtons,
     getTextEditorContent: _getTextEditorContent,
-    getQuillContainer: _getQuillContainer
+    getQuillContainer: _getQuillContainer,
+    initFirebase: _initFirebase,
+    checkMainNavName: _checkMainNavName,
+    saveData: _saveData
   };
 })();

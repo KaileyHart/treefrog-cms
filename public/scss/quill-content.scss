@@ -1,6 +1,9 @@
 .editor {
   width: 70%;
 }
+.ql-editor {
+  padding-bottom: 30px;
+}
 
 .ql-align-center {
   text-align: center;
@@ -14,4 +17,56 @@
 }
 .ql-toolbar {
   width: 800px;
+}
+
+.ql-picker-label {
+  font-size: 10px;
+}
+.ql-active {
+  font-size: 10px;
+}
+.ql-picker-item {
+  font-size: 10px;
+}
+
+.ql-selected {
+  font-size: 10px;
+}
+
+span[value="small"] {
+  font-size: 10px;
+}
+
+.ql-size-small {
+  font-size: 10px;
+}
+.ql-size-large {
+  font-size: 30px;
+}
+.ql-size-normal {
+  font-size: 16px;
+}
+.ql-size-huge {
+  font-size: 60px;
+}
+
+.ql-align-justify {
+  width: 100px;
+  text-align: justify;
+}
+
+blockquote {
+  background: #f9f9f9;
+  border-left: 10px solid #ccc;
+  margin: 1.5em 10px;
+  padding: 0.5em 10px;
+  quotes: "\201C""\201D""\2018""\2019";
+}
+
+.saveData {
+  background-color: $dark-color;
+  color: $white-color;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
 }

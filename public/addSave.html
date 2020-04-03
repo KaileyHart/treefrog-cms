@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add & Save</title>
+    <style>
+      .viewNav {
+        padding: 20px;
+        
+        
+      }
+      
+      a {
+        border: .5px solid #5d5d5d;
+        text-decoration: none;
+        padding: 8px;
+        padding-left: 10px;
+        padding-right: 10px;
+        border-radius: 5px;
+        color: white;
+        background-color: #5d5d5d;
+        margin-right: 10px;
+      }
+      a:hover {
+        background-color: white;
+        color: #5d5d5d;
+      }
+      .showDeleteData {
+        margin-top: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!--Create-->
+    <h2>Create A New Navigation</h2>
+    <p>To create a new navigation, type the name of your navigation in the input box below. <br>
+    Then, click add data. </p>
+    <input type="text" id="nav-input" />
+    <button id="addData">Add Data</button>
+
+    <br>
+    <br>
+
+    <!--Update-->
+    
+    <h2>Update Content</h2>
+    <p>To update content, simply click the "Get Data" button. <br>Then, type the change you want in the input box. <br>Next, click the navigation that you would like to change! </p>
+    
+    <button class="getData">Get Data</button>
+ 
+    
+    <div class="showData"></div>
+    <br>
+    <div>
+      <input type="text" id="updateContent">
+    </div>
+
+    <br>
+    <br>
+
+    <!--Delete-->
+    <h2>Delete Content</h2>
+    <p><p>To delete content, simply click the "Get Data" button. <br>Then, type "delete" in the input box. <br>Next, click the navigation that you would like to delete. <br> Finally, refresh the page, click the "Get Data" button again, and view your changes! </p>
+  </p>
+    
+    <button class="getDeleteData">Get Data</button>
+    <br>
+    <div class="showDeleteData"></div>
+    <br>
+    <div>
+    <input type="text" id="deleteContent"></input>
+  </div>
+
+    
+  <script defer src="/__/firebase/7.8.1/firebase-app.js"></script>
+  <!-- include only the Firebase features as you need -->
+  <script defer src="/__/firebase/7.8.1/firebase-auth.js"></script>
+  <script defer src="/__/firebase/7.8.1/firebase-database.js"></script>
+  <script defer src="/__/firebase/7.8.1/firebase-firestore.js"></script>
+  <script defer src="/__/firebase/7.8.1/firebase-messaging.js"></script>
+  <script defer src="/__/firebase/7.8.1/firebase-storage.js"></script>
+  <!-- initialize the SDK after all desired features are loaded -->
+  <script defer src="/__/firebase/init.js"></script>
+  <script src="lib/jquery.min.js"></script>
+    <script src="app/pService.js"></script>
+    <script src="app/pApp.js"></script>
+  </body>
+</html>
